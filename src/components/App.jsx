@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import { FeedbackOptions } from './FeedbackOptions';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Card } from './FeedbackOptions.styled';
-import { Statistics } from './Statistics';
+import { Statistics } from './Statistics/Statistics';
 import { Percents, sumArrayValues } from './Function';
 export class App extends Component {
   state = {
