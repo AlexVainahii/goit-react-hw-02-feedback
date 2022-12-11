@@ -1,15 +1,13 @@
+
 import { Component } from 'react';
 import { Button, ButtonCard } from './FeedbackOptions.styled';
 
 export class FeedbackOptions extends Component {
-  render() {
-    const { incrementGood, incrementBad, incrementNeutral } = this.props;
+  render() {const {objectState} = this.props
     return (
       <ButtonCard>
-        <Button onClick={incrementGood}>Good</Button>
-        <Button onClick={incrementNeutral}>Neutral</Button>
-        <Button onClick={incrementBad}>Bad</Button>
+      {Object.keys(objectState).map((option) => {console.log("option"); return( <Button key={option} >{option}</Button>)})}
       </ButtonCard>
     );
-  }
-}
+  }}
+

@@ -2,24 +2,22 @@ import { Component } from 'react';
 import { FeedbackOptions } from './FeedbackOptions';
 import { Card } from './FeedbackOptions.styled';
 import { Statistics } from './Statistics';
-import { Percents, sumArrayValues } from './Function';
+import { Percents} from './Function';
 export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
-  incrementGood = () => {
-    this.setState(state => ({ good: this.state.good + 1 }));
+  IncrementOpt = option => {
+    this.setState(prewstate => ({ option: prewstate[option] + 1 }));
   };
-  incrementNeutral = () => {
-    this.setState(state => ({ neutral: this.state.neutral + 1 }));
-  };
-  incrementBad = () => {
-    this.setState(state => ({ bad: this.state.bad + 1 }));
-  };
+ 
   countTotalFeedback() {
-    return sumArrayValues(this.state);
+    return Object.values(this.state).reduce((total, val) => {
+     console.log(total,val);
+      return total + val;
+    }, 0);
   }
   countPositiveFeedbackPercentage() {
     return Percents(this.state.good, this.countTotalFeedback());
@@ -29,9 +27,8 @@ export class App extends Component {
       <Card>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
-          incrementGood={this.incrementGood}
-          incrementNeutrall={this.incrementNeutral}
-          incrementBad={this.incrementBad}
+          objectState={this.state}
+   
         />
         <h2> Statistics</h2>
         {this.countTotalFeedback === 0 ? (
