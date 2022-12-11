@@ -10,13 +10,13 @@ export class App extends Component {
     bad: 0,
   };
   incrementGood = () => {
-    this.setState(state => ({ good: this.state.good + 1 }));
+    this.setState(prewstate => ({ good: prewstate.good + 1 }));
   };
   incrementNeutral = () => {
-    this.setState(state => ({ neutral: this.state.neutral + 1 }));
+    this.setState(prewstate => ({ neutral: prewstate.neutral + 1 }));
   };
   incrementBad = () => {
-    this.setState(state => ({ bad: this.state.bad + 1 }));
+    this.setState(prewstate => ({ bad: prewstate.bad + 1 }));
   };
   countTotalFeedback() {
     return sumArrayValues(this.state);
@@ -25,26 +25,25 @@ export class App extends Component {
     return Percents(this.state.good, this.countTotalFeedback());
   }
   render() {
+    const { good, neutral, bad } = this.state;
     return (
       <Card>
         <h2>Please leave feedback</h2>
         <FeedbackOptions
           incrementGood={this.incrementGood}
-          incrementNeutrall={this.incrementNeutral}
+          incrementNeutral={this.incrementNeutral}
           incrementBad={this.incrementBad}
         />
         <h2> Statistics</h2>
-        {this.countTotalFeedback === 0 ? (
+        {this.countTotalFeedback() === 0 ? (
           <p>No Feedbaak given</p>
         ) : (
           <Statistics
-            good={this.state.good}
-            neutral={this.state.neutral}
-            bad={this.state.bad}
-            countTotalFeedback={this.countTotalFeedback}
-            ountPositiveFeedbackPercentage={
-              this.countPositiveFeedbackPercentage
-            }
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            countTotalFeedback={this.countTotalFeedback()}
+            ountPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage()}
           />
         )}
       </Card>
