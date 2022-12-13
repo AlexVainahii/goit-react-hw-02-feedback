@@ -1,14 +1,12 @@
 import { Component } from 'react';
 
-export class Statistics extends Component {
-  render() {
-    const {
-      good,
+export const Statistics =(   
+     { good,
       neutral,
       bad,
       countTotalFeedback,
       countPositiveFeedbackPercentage,
-    } = this.props;
+    })=>{
     return (
       <>
         <p>Good: {good}</p>
@@ -19,4 +17,4 @@ export class Statistics extends Component {
       </>
     );
   }
-}
+
