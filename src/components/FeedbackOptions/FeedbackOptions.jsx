@@ -26,5 +26,5 @@ FeedbackOptions.propTypes = {
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
   }),
-  incrementClick: PropTypes.func,
+  incrementClick: PropTypes.func.isRequired,
 };
