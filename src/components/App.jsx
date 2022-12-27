@@ -27,8 +27,10 @@ export class App extends Component {
       <Card>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            objectState={this.state}
             incrementClick={this.incrementClick}
+            good={good}
+            neutral={neutral}
+            bad={bad}
           />
         </Section>
         <Section title="Statistics">

@@ -1,10 +1,10 @@
 import { Button, ButtonCard } from './FeedbackOptions.styled';
 import PropTypes from 'prop-types';
 
-export const FeedbackOptions = ({ objectState, incrementClick }) => {
+export const FeedbackOptions = ({  incrementClick, ...object }) => {
   return (
     <ButtonCard>
-      {Object.keys(objectState).map(option => {
+      {Object.keys(object).map(option => {
         return (
           <Button
             key={option}
