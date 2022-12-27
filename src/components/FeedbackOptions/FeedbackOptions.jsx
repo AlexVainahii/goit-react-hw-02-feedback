@@ -21,10 +21,9 @@ export const FeedbackOptions = ({  incrementClick, ...object }) => {
 };
 
 FeedbackOptions.propTypes = {
-  objectState: PropTypes.shape({
+ 
     good: PropTypes.number.isRequired,
     neutral: PropTypes.number.isRequired,
     bad: PropTypes.number.isRequired,
-  }),
-  incrementClick: PropTypes.func.isRequired,
+   incrementClick: PropTypes.func.isRequired,
 };
